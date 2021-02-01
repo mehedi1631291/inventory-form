@@ -1,0 +1,22 @@
+*{
+	padding:0;
+	margin: 0;
+}
+
+
+form {
+  text-align: center;
+  background: aliceblue;
+  padding-top: 80px;
+  padding-bottom: 180px;
+}
+#name {
+  margin-bottom: 15px;
+}
+input {
+	margin: 10px;
+	padding: 10px;
+}
+label {
+	padding-left: 20px;
+}

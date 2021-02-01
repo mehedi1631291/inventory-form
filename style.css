@@ -1,0 +1,38 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+}
+.menu{
+	display: inline-block;
+}
+
+.menu ul {
+  display: inline-block;
+}
+.header_menu {
+  background: aliceblue;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.menu {
+  background: aliceblue;
+  padding: 40px 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.menu ul li {
+  display: inline;
+   padding: 18px;
+}
+.menu ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: unset;
+  font-size: large;
+}
