@@ -1,0 +1,20 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+form {
+	text-align: center;
+	padding: 20px;
+	background: aliceblue;
+}
+
+h2 {
+	text-align: center;
+	background: aliceblue;
+	font-size: 50px;
+	padding-bottom: 25px;
+}
+form p {
+	margin-top: 30px;
+}
