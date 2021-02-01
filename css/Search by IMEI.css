@@ -1,0 +1,74 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+form {
+	text-align: center;
+	padding: 70px;
+	background: aliceblue;
+	padding-bottom: 263px;
+}
+
+h2 {
+	text-align: center;
+	background: aliceblue;
+	font-size: 50px;
+	padding-bottom: 25px;
+}
+form p {
+	margin-top: 30px;
+}
+
+.form_design select {
+	padding-right: 20px;
+	margin-top: 14px;
+	margin-bottom: 20px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+label {
+	font-size: 25px;
+}
+
+/*.form_design {
+	padding-right: 100px;
+	padding-left: 100px;
+	margin-left: 150px;
+	margin-right: 150px;
+	padding-bottom: 0px;
+}
+*/
+.heading_area p {
+	text-align: center;
+	padding: ;
+	padding-right: ;
+	margin-right: 280px;
+	color: red;
+	background: aliceblue;
+	margin-top: -20px;
+	margin-bottom: ;
+	padding-bottom: ;
+}
+
+#IMEI {
+	padding-bottom: 10px;
+	margin-bottom: 17px;
+	margin-top: 15px;
+	border: 0px;
+	padding-right: 0px;
+}
+input[type='submit']:hover{
+  color:white;
+  background: black;padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 3px;
+	padding-top: 3px;
+  transition: all 1s;
+}
+input {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
