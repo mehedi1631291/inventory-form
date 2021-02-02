@@ -3,6 +3,14 @@
 	margin: 0;
 }
 
+.form_design select {
+	padding-right: 20px;
+	margin-top: 14px;
+	margin-bottom: 20px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
 form {
 	text-align: center;
 	padding: 70px;
@@ -21,11 +29,12 @@ form p {
 }
 
 .form_design select {
-	padding-right: 20px;
-	margin-top: 14px;
+	padding-right: 27px;
+	margin-top: 25px;
+	margin-bottom: 75px;
 	padding-bottom: 5px;
 	padding-top: 5px;
-	margin-bottom: 80px;
+	padding-left: 15px;
 }
 label {
 	font-size: 25px;
@@ -49,28 +58,33 @@ label {
 	margin-top: -20px;
 	margin-bottom: ;
 	padding-bottom: ;
+	margin-left: -240px;
 }
+
 
 #IMEI {
 	padding-bottom: 10px;
-	margin-bottom: 55px;
+	margin-bottom: 100px;
 	margin-top: 15px;
 	border: 0px;
 	padding-right: 0px;
 }
 input[type='submit']:hover{
-  color:white;
-  background: black;padding-right: 10px;
-	padding-left: 10px;
-	padding-bottom: 3px;
-	padding-top: 3px;
-  transition: all 1s;
+  	color:white;
+  	background: #7349BD;
+  	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-radius: 4px;
+  transition: all .5s;
 }
 input {
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-bottom: 3px;
-	padding-top: 3px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-radius: 4px;
 }
 
 .first_div {
@@ -82,7 +96,6 @@ input {
 	margin-left: 100px;
 	margin-right: 100px;
 }
-
 
 .submit_button input[type="submit"] {
 	background: #673AB7;

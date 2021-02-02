@@ -41,14 +41,12 @@ label {
 */
 .heading_area p {
 	text-align: center;
-	padding: ;
 	padding-right: ;
 	margin-right: 280px;
 	color: red;
 	background: aliceblue;
 	margin-top: -20px;
-	margin-bottom: ;
-	padding-bottom: ;
+	margin-left: -55px;
 }
 
 #IMEI {
@@ -59,24 +57,46 @@ label {
 	padding-right: 0px;
 }
 input[type='submit']:hover{
-  color:white;
-  background: black;padding-right: 10px;
-	padding-left: 10px;
-	padding-bottom: 3px;
-	padding-top: 3px;
-  transition: all 1s;
+  	color:white;
+  	background: #7349BD;
+  	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-radius: 4px;
+  transition: all .5s;
 }
 input {
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-bottom: 3px;
-	padding-top: 3px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 8px;
+	padding-top: 8px;
+	border-radius: 4px;
 }
+
 
 .first_div {
 	border: 2px solid darkgray;
-	border-radius: 25px;
-	padding-bottom: 20px;
-	padding-top: 20px;
-	margin-bottom: 20px;
+border-radius: 10px;
+padding-bottom: 20px;
+padding-top: 20px;
+margin-bottom: 20px;
+margin-left: 100px;
+margin-right: 100px;
 }
+
+.submit_button input[type="submit"] {
+	background: #673AB7;
+	color: white;
+	border-radius: 11px;
+	padding: ;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+input[type="submit"]:hover {
+	background: #8A5DCA;
+
+}
+
