@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>form</title>
-	<link rel="stylesheet" type="text/css" href="css/in.css">
+	<meta charset="UTF-8">
+	<title>login</title>
+	<link rel="stylesheet" href="css/login2.css">
 </head>
 <body>
-	<form action="" method="">
-		<label for="name">Email:</label>
-		<input type="email" id="" placeholder="email here"><br>
-		<label for="password">Password: </label>
-		<input type="password" name="" placeholder="password here"><br>
-		<input type="submit" value="Login">
-		
-	</form>
-
+	<div class="container">
+		<h1 class="label">Dingi</h1>
+		<form class="login_form" action="b2.html" method="post" name="form" onsubmit="return validated()">
+			<div class="font">Email or Phone</div>
+			<input autocomplete="off" type="text" name="email">
+			<div id="email_error">Please fill up your Email</div>
+			<div class="font font2">Password</div>
+			<input type="password" name="password">
+			<div id="pass_error">Please fill up your Password</div>
+			<button type="submit">Login</button>
+		</form>
+	</div>	
+	<script src="valid.js"></script>
 </body>
 </html>
