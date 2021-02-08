@@ -111,7 +111,7 @@
 			else{
 				var url="https://script.google.com/macros/s/AKfycbztzhckottKXPneR2cJc0dej24bcEiGfi-P7i3XERz_mIswHps5mKic/exec";
 				$("#login").on('click',function(){
-					
+					$("#modal01")[0].style.display='block';
 					$.ajax({
 							url: url, 
 							type : "POST",
@@ -123,6 +123,7 @@
 							success : function(result) {
 								//console.log(result);
 								//alert(result);
+								$("#modal01")[0].style.display='none';
 								if(result["resultData"]["respResult"]=="success")
 								{
 									var url = (window.location.href).replace("index.html","menu.html");
@@ -134,6 +135,7 @@
 								
 							},
 							error: function(xhr, resp, text) {
+								$("#modal01")[0].style.display='none';
 								console.log(xhr, resp, text);
 								alert(resp);
 							}
