@@ -101,40 +101,48 @@
 </script>
 <script>
 	$(document).ready(function(){
-		
-		var url="https://script.google.com/macros/s/AKfycbztzhckottKXPneR2cJc0dej24bcEiGfi-P7i3XERz_mIswHps5mKic/exec";
-		$("#login").on('click',function(){
-			
-			$.ajax({
-                    url: url, 
-					type : "POST",
-					headers: {
-						'Content-Type': 'application/x-www-form-urlencoded'
-					},
-                    //dataType : 'json', //"reqType:SI;email:"+
-                    data : {"reqType":"SI", "email":$("#email").val(), "pass":$("#password").val()},
-                    success : function(result) {
-                        //console.log(result);
-						//alert(result);
-						if(result["resultData"]["respResult"]=="success")
-						{
-							var url = (window.location.href).replace("index.html","menu.html");
-							setCookie("username", result["resultData"]["username"], 60); 
-							//console.log(getCookie("username"));
-							window.location.href = url;
+		var username= getCookie("username");
+			//console.log(username);
+		if(username){
+			var url = (window.location.href).replace("index.html","menu.html");
+			setCookie("username", username, 60); 
+			window.location.href = url;
+		}
+		else{
+			var url="https://script.google.com/macros/s/AKfycbztzhckottKXPneR2cJc0dej24bcEiGfi-P7i3XERz_mIswHps5mKic/exec";
+			$("#login").on('click',function(){
+				
+				$.ajax({
+						url: url, 
+						type : "POST",
+						headers: {
+							'Content-Type': 'application/x-www-form-urlencoded'
+						},
+						//dataType : 'json', //"reqType:SI;email:"+
+						data : {"reqType":"SI", "email":$("#email").val(), "pass":$("#password").val()},
+						success : function(result) {
+							//console.log(result);
+							//alert(result);
+							if(result["resultData"]["respResult"]=="success")
+							{
+								var url = (window.location.href).replace("index.html","menu.html");
+								setCookie("username", result["resultData"]["username"], 60); 
+								//console.log(getCookie("username"));
+								window.location.href = url;
+							}
+							else alert("Wrong email or username");
+							
+						},
+						error: function(xhr, resp, text) {
+							console.log(xhr, resp, text);
+							alert(resp);
 						}
-						else alert("Wrong email or username");
-						
-                    },
-                    error: function(xhr, resp, text) {
-                        console.log(xhr, resp, text);
-                        alert(resp);
-                    }
-				})
+					})
 
-			return false;
+				return false;
 
-		});
+			});
+		}
 	});
 </script>
 

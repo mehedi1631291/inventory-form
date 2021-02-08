@@ -3,6 +3,7 @@
 	<head>
 		<title>Search</title>
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" type="text/css" href="css/general.css">
 		<style>
 			body{
 				background-color: aliceblue;
@@ -53,32 +54,6 @@
 				background-color: black;
 				color: white;
 			}
-
-			.loader {
-				border: 16px solid #f3f3f3;
-				border-radius: 50%;
-				border-top: 16px solid #3498db;
-				width: 120px;
-				height: 120px;
-				-webkit-animation: spin 2s linear infinite; /* Safari */
-				animation: spin 2s linear infinite;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-top: -50px;
-				margin-left: -50px;
-			}
-
-				/* Safari */
-			@-webkit-keyframes spin {
-				0% { -webkit-transform: rotate(0deg); }
-				100% { -webkit-transform: rotate(360deg); }
-			}
-
-			@keyframes spin {
-				0% { transform: rotate(0deg); }
-				100% { transform: rotate(360deg); }
-			}
 		</style>
 	</head>
 	<body>
@@ -126,8 +101,6 @@
 		$(document).ready(function(){
 			var username= getCookie("username");
 			//console.log(username);
-
-			$("body")
 			
 			if(username){
 				var url = (window.location.href).replace("search_by_IMEI.html","menu.html");
