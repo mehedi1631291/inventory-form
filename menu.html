@@ -1,64 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<style>
-		*{
-	padding: 0;
-	margin: 0;
-}
+	<head>
+		<style>
+			body{
+				background-color: aliceblue;
+				padding: 40px;
+			}
+			table {
+				width:100%;
+			}
+			table, th, td {
+				border: 0px;
+				border-collapse: collapse;
+			}
+			th, td, h2 {
+				padding: 15px;
+				text-align: center;
+			}
 
+			h2{
+				border-style: double;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 0px;
+				border-color: rgb(104, 86, 64);
+				color: rgb(104, 86, 64);
+			}
+			#t01 tr:nth-child(odd) {
+				background-color: rgb(187, 180, 180);
+			}
+			#t01 tr:nth-child(even) {
+				background-color: aliceblue;
+			}
 
-.button {
-  text-align: center;
-  background: aliceblue;
-  padding: 30px;
-}
-.button_area a {
-	text-decoration: none;
-	color: unset;
-	padding: 12px;
-	font-size: 25px;
-	display: inline-block;
-	margin: 60px;
-	border: 3px solid steelblue;
-	border-radius: 10px;
-	background: transparent;
-	padding-right: 300px;
-	padding-left: 300px;
+			.button {
+				text-align: center;
+				background: aliceblue;
+				padding: 30px;
+			}
+			.button_area a {
+				text-decoration: none;
+				color: unset;
+				padding: 12px;
+				font-size: 25px;
+				display: inline-block;
+				background: transparent;
 
-}
-.button_area a:hover {
-	color: red;
-	background: cadetblue;
-}
-
-.second a {
-	padding: ;
-	padding-right: 345px;
-	padding-left: 345px;
-}
-
-.third a {
-	padding-right: 358px;
-	padding-left: 358px;
-}
-	</style>
-</head>
-<body>
-	<section class="button">
+			}
+			.button_area .btn_hvr:hover {
+				color: rgb(187, 180, 180);
+				background: cornflowerblue;
+			}
+		</style>
+	</head>
+	<body>
 		<div class="button_area">
-			<div class="first">
-			<a href="Installation Complete Form.html">Installation Complete Form</a>
-			</div><br>
-			<div class="second">
-			<a href="Replacement Form.html">Replacement Form</a>
-		</div><br>
-		<div class="third">
-			<a href="Search by IMEI.html">Search by IMEI</a><br>	
+			<h2>Select Your Operation Form</h2>
+			<table id="t01">
+				<tr>
+					<td class="btn_hvr"><a id="install" href="Installation Complete Form.html">Installation Complete Form</a></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="btn_hvr"><a id="replace" href="Replacement Form.html">Replacement Form</a></td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="btn_hvr"><a href="search_by_IMEI.html">Search by IMEI</a></td>
+				</tr>
+			</table>
 		</div>
-		
-	</section>
-
-</body>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/general.js"></script>
+	<script>
+		$(document).ready(function(){
+			var username= getCookie("username");
+			//console.log(username);
+			
+			if(username){
+				setCookie("username", username, 60);
+			}
+			else{
+				$("body")[0].innerHTML="";
+				alert("Invalid Cookie. Please login First")
+				var url = (window.location.href).replace("menu.html","index.html");
+				window.location.href = url;
+			}
+		});
+	</script>
 </html>

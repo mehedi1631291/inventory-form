@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Search</title>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<style>
+			body{
+				background-color: aliceblue;
+				padding: 40px;
+			}
+			table {
+				width:100%;
+			}
+			table, th, td {
+				border: 0px;
+				border-collapse: collapse;
+			}
+			th, td, h2 {
+				padding: 15px;
+				text-align: center;
+			}
+		
+			h2{
+				border-style: double;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 0px;
+				border-color: rgb(104, 86, 64);
+				color: rgb(104, 86, 64);
+			}
+			
+		
+			.button_area a {
+				text-decoration: none;
+				color: unset;
+				padding: 12px;
+				font-size: 25px;
+				display: inline-block;
+				background: transparent;
+		
+			}
+			.button_area .btn_hvr:hover {
+				color: white;
+			}
+
+			#t01 tr:nth-child(even) {
+				background-color: #eee;
+			}
+			#t01 tr:nth-child(odd) {
+				background-color: #fff;
+			}
+			#t01 th {
+				background-color: black;
+				color: white;
+			}
+
+			.loader {
+				border: 16px solid #f3f3f3;
+				border-radius: 50%;
+				border-top: 16px solid #3498db;
+				width: 120px;
+				height: 120px;
+				-webkit-animation: spin 2s linear infinite; /* Safari */
+				animation: spin 2s linear infinite;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-top: -50px;
+				margin-left: -50px;
+			}
+
+				/* Safari */
+			@-webkit-keyframes spin {
+				0% { -webkit-transform: rotate(0deg); }
+				100% { -webkit-transform: rotate(360deg); }
+			}
+
+			@keyframes spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+		</style>
+	</head>
+	<body>
+		<a id="back" href="">&#8592;Menu</a>
+		<div class="button_area">
+			<h2>Search Your Devices</h2>
+			<table>
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Enter Your IMEI here:</h4>
+						<textarea id="IMEI" rows="4" cols="100" style="text-align: left !important;">
+						</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
+				<tr>
+					<td >
+						<a class="btn_hvr" style="background-color: rgb(187, 180, 180); padding-left: 45px; padding-right: 45px;">
+							Search
+						</a>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<br>
+			<h2>Search Result</h2>
+			<table id="t01" >
+				<tr>
+				  <th>IMEI</th>
+				  <th>Result</th> 
+				</tr>
+			</table>
+		</div>
+		<div id="modal01" class="w3-modal">
+				<div class="loader"></div>
+		</div>
+
+	</body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/general.js"></script>
+	<script>
+		$(document).ready(function(){
+			var username= getCookie("username");
+			//console.log(username);
+
+			$("body")
+			
+			if(username){
+				var url = (window.location.href).replace("search_by_IMEI.html","menu.html");
+				$("#back")[0].href=url;
+
+				var url="https://script.google.com/macros/s/AKfycbztzhckottKXPneR2cJc0dej24bcEiGfi-P7i3XERz_mIswHps5mKic/exec";
+				$(".btn_hvr").on('click',function(){
+
+					let data = $("#IMEI")[0].value;
+					data=data.trim().toString().replace(",",", ");
+					if (data.length>0)
+					{
+						$("#modal01")[0].style.display='block';
+						$.ajax({
+							url: url, 
+							type : "POST",
+							headers: {
+								'Content-Type': 'application/x-www-form-urlencoded'
+							},
+							//dataType : 'json', //"reqType:SI;email:"+
+							data : {"reqType":"SD", "imeis":data},
+							success : function(result) {
+								
+								tableRowNo = $("#t01 tr").length;
+								for (let index = 1; index < tableRowNo; index++) {
+									$('#t01 tr:last-child').remove();
+								}
+								//console.log(result);
+								$("#IMEI")[0].value="";
+								tableBody = $("#t01 tbody");
+								Object.entries(result["resultData"]).forEach(([key, value]) => {
+									//console.log(key, value);
+									markup = "<tr><td>"+ key + "</td><td>"+value+"</td></tr>"; 
+									tableBody.append(markup);
+									$("#modal01")[0].style.display='none';
+								});
+								
+							},
+							error: function(xhr, resp, text) {
+								//console.log(xhr, resp, text);
+								alert(resp);
+							}
+						});
+					}
+					else{
+						alert("Please Enter IMEI data")
+					}
+				});
+			}
+			else{
+				$("body")[0].innerHTML="";
+				alert("Invalid Cookie. Please login First")
+				var url = (window.location.href).replace("search_by_IMEI.html","index.html");
+				window.location.href = url;
+			}
+			
+		});
+	</script>
+</html>
