@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/Replacement Form.css">
-	<style>
-				body {
+	<head>
+		<title>Replacement Form</title>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<link rel="stylesheet" type="text/css" href="css/general.css">
+		<style>
+			body {
 				background-color: aliceblue;
 				padding: 40px;
-		}
+			}
 			h2 {
 				border-style: double;
 				border-top: 0px;
@@ -15,13 +16,13 @@
 				border-right: 0px;
 				border-color: rgb(104, 86, 64);
 				color: rgb(104, 86, 64);
-}
+			}
 			a {
-   			 color: inherit;
-}
+				color: inherit;
+			}
 			a {
-   			 background-color: transparent;
-}
+				background-color: transparent;
+			}
 
 			table {
 				width:100%;
@@ -55,129 +56,94 @@
 
 			h4 {
 				font-size: 20px;
-}
+			}
 
 
-			#IMEI {
+			input {
+				float: right;
 				padding-left: 40px;
 				padding-right: 40px;
 				padding-top: 13px;
 				padding-bottom: 13px;
-				width: 50%;
-}
+				width: 70%;
+			}
 
 			#APPI {
-				padding-right: ;
+				float: right;
+				padding-left: 40px;
 				padding-top: 13px;
 				padding-bottom: 13px;
-				width: 58%;
-}
+				width: 70%;
+			}
 
 
 			#APPI2 {
+				float: right;
+				padding-left: 40px;
 				padding-top: 13px;
 				padding-bottom: 13px;
-				width: 56%;
-}
+				width: 70%;
+			} 
 
-			h1, h2, h3, h4, h5, h6 {
+			h4, h2{
 				font-family: "Segoe UI",Arial,sans-serif;
 				font-weight: 400;
 				margin: 10px 0;
-}
+			}
 
 			#t01 th {
 				background-color: black;
 				color: white;
-}
+			}
+		</style>
+	</head>
 
 
-	</style>
-</head>
-
-
-
-
-
-<body>
-
-<a id="back" href="menu.html">&#8592;Menu</a>
+	<body>
+		<a id="back" href="menu.html">&#8592;Menu</a>
+		<h2>Replacement Form</h2>
 		<div class="button_area">
-			<h2>Replacement Form</h2>
-
-<table  align="center">
-	<tr>
+			<table>
+				<tr>
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">Replacement Type:</h4>
 						<select name="" id="APPI">
-			<option>Choose</option>
-			<option value="">Device Replacement</option>
-			<option value="">Sim Replacement</option>
-			<option value="">both</option><br>
-		</select>
+							<option>Choose</option>
+							<option value="">Device Replacement</option>
+							<option value="">Sim Replacement</option>
+							<option value="">both</option><br>
+						</select>
 					</td>
 				</tr>
-
-
-				<div class="old_IMEI">
-				<tr>
+				<tr id="old_imei_row" style="display: none;">
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">Old Device IMEI:</h4>
-						<input type="text" id="IMEI" placeholder="Your Answer" >
+						<input type="text" id="old_imei_input" placeholder="Your Answer" >
 					</td>
 				</tr>
-			</div>
-
-				<tr>
+				<tr id="new_imei_row" style="display: none;"> 
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">New Device IMEI:</h4>
-						<input type="text" id="IMEI" placeholder="Your Answer">
+						<input type="text" id="new_imei_input" placeholder="Your Answer">
 					</td>
 				</tr>
-				<tr>
-					<td></td>
-				</tr>	
-				
-				<tr>
+				<tr id="sim_row" style="display: none;">
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">New Sim Number:</h4>
-						<input type="text" id="IMEI" placeholder="Your Answer">
+						<input type="text" id="sim_input" placeholder="Your Answer">
 					</td>
-				</tr>
-				<tr>
-					<td></td>
 				</tr>		
-
-
-				<tr>
+				<tr id="technician_name" style="display: none;"> 
 					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Select your name:</h4>
-						<select name="" id="APPI2" onchange="ddlselect();">
-			<option>Choose</option>
-			<option value="">Rahad</option>
-			<option value="">Alvie</option>
-			<option value="">Hasan</option><br>
-		</select>
+						<h4 style="float: left;">Select Technician name:</h4>
+						<select name="" id="APPI2">
+							<option>Choose</option>
+							<option value="">Rahad</option>
+							<option value="">Alvie</option>
+							<option value="">Hasan</option><br>
+						</select>
 					</td>
 				</tr>
-				<tr>
-					<td></td>
-				</tr>
-
-				<!--
-				<tr>
-					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Date:</h4>
-						<input type="date" name="" id="IMEI" placeholder="Date">
-					</td>
-				</tr>
-			-->
-				<tr>
-					<td></td>
-				</tr>
-
-
-
 				<tr>
 					<td >
 						<a class="btn_hvr" style="background-color: rgb(187, 180, 180); padding-left: 45px; padding-right: 45px;">
@@ -185,31 +151,22 @@
 						</a>
 					</td>
 				</tr>
+			</table>
 
+			<br><br>
 
-
-
-</table>
-<br><br>
-<h2>Search Result</h2>
+			<h2>Search Result</h2>
 			<table id="t01" >
 				<tr>
 				  <th>IMEI</th>
 				  <th>Result</th> 
 				</tr>
 			</table>
-
-
-
-
-
-
-</div>
-</body>
-
-
-
-
-
-
+		</div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="js/general.js"></script>
+	<script>
+		
+	</script>
 </html>

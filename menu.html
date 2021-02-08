@@ -127,10 +127,10 @@
 						});
 					}
 				});
-				$("#install").on('click',function(){
-					var formData = getCookie("installFormField");
+				$("#replace").on('click',function(){
+					var formData = getCookie("replaceFormField");
 					if(formData){
-						var url = (window.location.href).replace("menu.html","Installation_Complete_Form.html");
+						var url = (window.location.href).replace("menu.html","Replacement_Form.html");
 						window.location.href = url;
 					}
 					else
