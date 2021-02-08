@@ -3,62 +3,213 @@
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="css/Replacement Form.css">
+	<style>
+				body {
+				background-color: aliceblue;
+				padding: 40px;
+		}
+			h2 {
+				border-style: double;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 0px;
+				border-color: rgb(104, 86, 64);
+				color: rgb(104, 86, 64);
+}
+			a {
+   			 color: inherit;
+}
+			a {
+   			 background-color: transparent;
+}
+
+			table {
+				width:100%;
+			}
+			table, th, td {
+				border: 0px;
+				border-collapse: collapse;
+			}
+			th, td, h2 {
+				padding: 15px;
+				text-align: center;
+			}
+
+			select{
+				text-align: left !important;
+			}
+			
+
+			.button_area a {
+				text-decoration: none;
+				color: unset;
+				padding: 12px;
+				font-size: 25px;
+				display: inline-block;
+				background: transparent;
+		
+			}
+			.button_area .btn_hvr:hover {
+				color: white;
+			}
+
+			h4 {
+				font-size: 20px;
+}
+
+
+			#IMEI {
+				padding-left: 40px;
+				padding-right: 40px;
+				padding-top: 13px;
+				padding-bottom: 13px;
+				width: 50%;
+}
+
+			#APPI {
+				padding-right: ;
+				padding-top: 13px;
+				padding-bottom: 13px;
+				width: 58%;
+}
+
+
+			#APPI2 {
+				padding-top: 13px;
+				padding-bottom: 13px;
+				width: 56%;
+}
+
+			h1, h2, h3, h4, h5, h6 {
+				font-family: "Segoe UI",Arial,sans-serif;
+				font-weight: 400;
+				margin: 10px 0;
+}
+
+			#t01 th {
+				background-color: black;
+				color: white;
+}
+
+
+	</style>
 </head>
+
+
+
+
+
 <body>
 
-	<div class="heading_area">
-	<h2>Replacement Form</h2>
-	<p>* Required</p>
+<a id="back" href="menu.html">&#8592;Menu</a>
+		<div class="button_area">
+			<h2>Replacement Form</h2>
 
-</div>
-	<section class="form_start">
-	<div class="form_design">
-	<form action="" method="">
-		<div class="first_div">
-		<label for="name">Replacement Type</label><br>
-		<select name="" id="">
+<table  align="center">
+	<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Replacement Type:</h4>
+						<select name="" id="APPI">
 			<option>Choose</option>
 			<option value="">Device Replacement</option>
 			<option value="">Sim Replacement</option>
 			<option value="">both</option><br>
 		</select>
-		</div><br>
-		<div class="first_div">
-		<label for="IMEI">New Device IMEI</label><br>
-		<input type="text" id="IMEI" placeholder="Your Answer"><br>
-		
-	</div>
-	<div class="first_div">
-		
-		<label for="IMEI">Old Device IMEI</label><br>
-		<input type="text" id="IMEI" placeholder="Your Answer"><br>
-	</div>
-	<div class="first_div">
-		
-		<label for="IMEI">New Sim Number</label><br>
-		<input type="text" id="IMEI" placeholder="Your Answer"><br>
-	</div>
-	<div class="first_div">
-		<label for="name"> Select your name  </label><br>
-		<select name="" id="">
+					</td>
+				</tr>
+
+
+				<div class="old_IMEI">
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Old Device IMEI:</h4>
+						<input type="text" id="IMEI" placeholder="Your Answer" >
+					</td>
+				</tr>
+			</div>
+
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">New Device IMEI:</h4>
+						<input type="text" id="IMEI" placeholder="Your Answer">
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>	
+				
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">New Sim Number:</h4>
+						<input type="text" id="IMEI" placeholder="Your Answer">
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>		
+
+
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Select your name:</h4>
+						<select name="" id="APPI2" onchange="ddlselect();">
 			<option>Choose</option>
 			<option value="">Rahad</option>
 			<option value="">Alvie</option>
 			<option value="">Hasan</option><br>
-		</select><br>
-		
-	</div>
-	<div class="first_div">
+		</select>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+				</tr>
 
-	<label for="name">Date</label><br>
-		<input type="date" name="" placeholder="Date"><br>
-	</div>
-	<div class="submit_button">
-	<input type="Submit" name="" value="Submit">
-</div><br>
-	</form>
+				<!--
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Date:</h4>
+						<input type="date" name="" id="IMEI" placeholder="Date">
+					</td>
+				</tr>
+			-->
+				<tr>
+					<td></td>
+				</tr>
+
+
+
+				<tr>
+					<td >
+						<a class="btn_hvr" style="background-color: rgb(187, 180, 180); padding-left: 45px; padding-right: 45px;">
+							submit
+						</a>
+					</td>
+				</tr>
+
+
+
+
+</table>
+<br><br>
+<h2>Search Result</h2>
+			<table id="t01" >
+				<tr>
+				  <th>IMEI</th>
+				  <th>Result</th> 
+				</tr>
+			</table>
+
+
+
+
+
+
 </div>
-</section>
-
 </body>
+
+
+
+
+
+
 </html>
