@@ -108,7 +108,7 @@
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">Replacement Type:</h4>
 						<select id="APPI">
-							<option>Choose</option>
+							<option value="0">Choose</option>
 							<option value="1">Device Replacement</option>
 							<option value="2">Sim Replacement</option>
 							<option value="3">both</option><br>
@@ -179,7 +179,8 @@
 					});
 				} catch (error) {
 					alert(error);
-					location.reload();
+					var url = (window.location.href).replace("search_by_IMEI.html","index.html");
+					window.location.href = url;
 				}
 				
 
@@ -217,9 +218,7 @@
 				var url="https://script.google.com/macros/s/AKfycbztzhckottKXPneR2cJc0dej24bcEiGfi-P7i3XERz_mIswHps5mKic/exec";
 				$(".btn_hvr").on('click',function(){
 
-					let data = $("#IMEI")[0].value;
-					data=data.trim().toString().replace(",",", ");
-					if (data.length>0)
+					if (checkFields())
 					{
 						$("#modal01")[0].style.display='block';
 						$.ajax({
@@ -229,7 +228,7 @@
 								'Content-Type': 'application/x-www-form-urlencoded'
 							},
 							//dataType : 'json', //"reqType:SI;email:"+
-							data : {"reqType":"SD", "imeis":data},
+							data : getData(),
 							success : function(result) {
 								
 								tableRowNo = $("#t01 tr").length;
@@ -253,9 +252,6 @@
 							}
 						});
 					}
-					else{
-						alert("Please Enter IMEI data")
-					}
 				});
 			}
 			else{
@@ -263,6 +259,59 @@
 				alert("Invalid Cookie. Please login First")
 				var url = (window.location.href).replace("search_by_IMEI.html","index.html");
 				window.location.href = url;
+			}
+
+			function getData(){
+				var data={};
+				data["reqType"]		=	"PD";
+				data["formName"]	=	"replace";
+				data["person"]		=	username;
+				data["technician"]	=	$("#APPI2").val();
+				data["repType"]	=	$("#APPI").val();
+				data["time"]		=	new Date().getTime();
+
+				if(!$("#old_imei_row").prop('hidden'))
+				{
+					data["oldImei"]	=	$("#old_imei_input")[0].value;
+				}
+				if(!$("#new_imei_row").prop('hidden'))
+				{
+					data["newImei"]	=	$("#new_imei_input")[0].value;
+				}
+				if(!$("#sim_row").prop('hidden'))
+				{
+					data["sim"]	=	$("#sim_input")[0].value;
+				}
+
+				return data;
+			}
+
+			function checkFields(){
+				if($('#APPI').val()==0){
+					alert("Please Select a replacement type")
+					return false;
+				}
+				else if($("#old_imei_input")[0].value=="" && !$("#old_imei_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#old_imei_input")[0].focus();
+					return false;
+				}
+				else if($("#new_imei_input")[0].value=="" && !$("#new_imei_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#new_imei_input")[0].focus();
+					return false;
+				}
+				else if($("#sim_input")[0].value=="" && !$("#sim_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#sim_input")[0].focus();
+					return false;
+				}
+				else{
+					return true;
+				}	
 			}
 			
 		});

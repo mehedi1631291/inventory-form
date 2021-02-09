@@ -116,8 +116,8 @@
 
 				<tr>
 					<td>
-						<h4>Organization Number:</h4>
-						<input type="text" id="org_nmbr" placeholder="Your Answer">
+						<h4>Organization Name:</h4>
+						<input type="text" id="org_name" placeholder="Your Answer">
 
 					</td>
 				</tr>
@@ -142,8 +142,8 @@
 
 				<tr>
 					<td>
-						<h4>Date</h4>
-						<input type="date" id="vehicle_nmbr" placeholder="Your Answer">
+						<h4>Installation Date</h4>
+						<input type="date" id="installation_date" placeholder="Your Answer">
 
 					</td>
 				</tr>
@@ -162,7 +162,6 @@
 					<td>
 						<h4>Relay Interested?</h4>
 						<select id="relay_interested">
-							<option>Choose</option>
 							<option value="1">Yes</option>
 							<option value="0">No</option>
 						</select>
@@ -179,7 +178,7 @@
 
 					</td>
 				</tr>
-				<tr>
+				<tr id="ten_row" hidden>
 					<td>
 						<h4>Tenant:</h4>
 						<select id="ten">
@@ -209,7 +208,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr id="pac_row" hidden>
 					<td>
 						<h4>Package Type:</h4>
 						<select id="pac_typ">
@@ -219,17 +218,7 @@
 					</td>
 				</tr>
 
-				<tr>
-					<td>
-						<h4>Client Type:</h4>
-						<select id="client_typ">
-
-						</select>
-
-					</td>
-				</tr>
-
-				<tr>
+				<tr id="bil_amnt_row" hidden>
 					<td>
 						<h4>Bill Amount:</h4>
 						<input type="text" id="bil_amnt" placeholder="Your Answer">
@@ -237,7 +226,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr id="code_sos_row" hidden>
 					<td>
 						<h4>Code/SOS:</h4>
 						<input type="text" id="code_sos" placeholder="Your Answer">
@@ -245,7 +234,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr id="order_row" hidden>
 					<td>
 						<h4>Order:</h4>
 						<input type="text" id="order" placeholder="Your Answer">
@@ -253,15 +242,15 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr id="bill_id_row" hidden>
 					<td>
-						<h4>Bill:</h4>
-						<input type="text" id="bill" placeholder="Your Answer">
+						<h4>Bill Id:</h4>
+						<input type="text" id="bill_id" placeholder="Your Answer">
 
 					</td>
 				</tr>
 
-				<tr>
+				<tr id="sub_c_row" hidden>
 					<td>
 						<h4>Subscription:</h4>
 						<input type="text" id="sub_c" placeholder="Your Answer">
@@ -269,7 +258,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr id="bill_period_row" hidden>
 					<td>
 						<h4>Bill period:</h4>
 						<input type="text" id="bill_period" placeholder="Your Answer">
@@ -292,13 +281,13 @@
 
 					</td>
 				</tr>
-
-
-				
-
-
-
+				<td >
+					<a class="btn_hvr" style="background-color: rgb(187, 180, 180); padding-left: 45px; padding-right: 45px;">
+						submit
+					</a>
+				</td>
 			</table>
+
 			<h2>Search Result</h2>
 			<table id="t01" >
 				<tr>
@@ -326,54 +315,55 @@
 					var customerCategory=(formInitData["customerCategory"]).split(",");
 					var provider=(formInitData["provider"]).split(",");
 					var tenant=(formInitData["tenant"]).split(",");
+					var vehicle=(formInitData["vehicle"]).split(",");
+					var package=(formInitData["package"]).split(",");
 
 					technician.forEach(element => {
 						$('#technician_name').append(new Option(element, element));
 					});
+
+					clientType.forEach(element => {
+						$('#cli_typ').append(new Option(element, element));
+					});
+					customerCategory.forEach(element => {
+						$('#cus_cat').append(new Option(element, element));
+					});
+					provider.forEach(element => {
+						$('#provider').append(new Option(element, element));
+					});
+					tenant.forEach(element => {
+						$('#ten').append(new Option(element, element));
+					});
+					vehicle.forEach(element => {
+						$('#vehicle_type').append(new Option(element, element));
+					});
+					package.forEach(element => {
+						$('#pac_typ').append(new Option(element, element));
+					});
+					setFormOptional();
 					
 				} catch (error) {
 					alert(error);
-					location.reload();
+					var url = (window.location.href).replace("Installation_Complete_Form.html","menu.html");
+					window.location.href = url;
 				}
 				
 
-				$('#APPI').change(function(){
-					var idSelected=$('#APPI').val();
+				$('#provider').change(function(){
+					setFormOptional();
+				});
+				$('#ten').change(function(){
+					setFormOptional();
+				});
 
-					if(idSelected==1){
-						$("#old_imei_row").prop('hidden', false);
-						$("#new_imei_row").prop('hidden', false);
-						$("#sim_row").prop('hidden', true);
-						$("#technician_name").prop('hidden', false);
-					}
-					else if(idSelected==2){
-						$("#old_imei_row").prop('hidden', true);
-						$("#new_imei_row").prop('hidden', true);
-						$("#sim_row").prop('hidden', false);
-						$("#technician_name").prop('hidden', false);
-					}
-					else if(idSelected==3){
-						$("#old_imei_row").prop('hidden', false);
-						$("#new_imei_row").prop('hidden', false);
-						$("#sim_row").prop('hidden', false);
-						$("#technician_name").prop('hidden', false);
-					}
-					else{
-						$("#old_imei_row").prop('hidden', true);
-						$("#new_imei_row").prop('hidden', true);
-						$("#sim_row").prop('hidden', true);
-						$("#technician_name").prop('hidden', true);
-						alert("wrong selection item");
-					}
+				$('#cus_cat').change(function(){
+					setFormOptional();
 				});
 
 
 				var url="https://script.google.com/macros/s/AKfycbztzhckottKXPneR2cJc0dej24bcEiGfi-P7i3XERz_mIswHps5mKic/exec";
 				$(".btn_hvr").on('click',function(){
-
-					let data = $("#IMEI")[0].value;
-					data=data.trim().toString().replace(",",", ");
-					if (data.length>0)
+					if (checkFields())
 					{
 						$("#modal01")[0].style.display='block';
 						$.ajax({
@@ -407,9 +397,6 @@
 							}
 						});
 					}
-					else{
-						alert("Please Enter IMEI data")
-					}
 				});
 			}
 			else{
@@ -417,6 +404,189 @@
 				alert("Invalid Cookie. Please login First")
 				var url = (window.location.href).replace("Installation_Complete_Form.html","index.html");
 				window.location.href = url;
+			}
+
+			function getData(){
+				var data={};
+				data["reqType"]		=	"PD";
+				data["formName"]	=	"installation";
+				data["person"]		=	username;
+				data["imei"]		=	$("#device_imei")[0].value;
+				data["sim"]			=	$("#vts_sim_nmbr")[0].value;
+				data["org"]			=	$("#org_name")[0].value;
+				data["vehicleNum"]	=	$("#vehicle_nmbr")[0].value;
+				data["vehicleType"]	=	$("#vehicle_type").val();
+				data["installDate"]	=	$("#installation_date")[0].value;
+				data["technician"]	=	$("#technician_name").val();
+				data["relay"]		=	$("#relay_interested").val();
+				data["provider"]	=	$("#provider").val();
+				data["cusCat"]		=	$("#cus_cat").val();
+				data["clientType"]	=	$("#cli_typ").val();
+				data["cusEmail"]	=	$("#Cus_email")[0].value;
+				data["cusPhn"]		=	$("#cus_ph")[0].value;
+				data["time"]		=	new Date().getTime();
+
+				if(!$("#pac_row").prop('hidden'))
+				{
+					data["package"]	=	$("#pac_typ").val();
+				}
+				if(!$("#ten_row").prop('hidden'))
+				{
+					data["tenant"]	=	$("#ten").val();
+				}
+				if(!$("#bil_amnt_row").prop('hidden'))
+				{
+					data["bilAmnt"]	=	$("#bil_amnt")[0].value;
+				}
+				if(!$("#code_sos_row").prop('hidden'))
+				{
+					data["codeSos"]		=	$("#code_sos")[0].value;
+				}
+				if(!$("#order_row").prop('hidden'))
+				{
+					data["order"]		=	$("#order")[0].value;
+				}
+				if(!$("#bill_id_row").prop('hidden'))
+				{
+					data["billId"]		=	$("#bill_id")[0].value;
+				}
+				if(!$("#sub_c_row").prop('hidden'))
+				{
+					data["subscription"]=	$("#sub_c")[0].value;
+				}
+				if(!$("#bill_period_row").prop('hidden'))
+				{
+					data["billPeriod"]	=	$("#bill_period")[0].value;
+				}
+
+				return data;
+			}
+
+			function checkFields(){
+				if($("#device_imei")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#device_imei")[0].focus();
+					return false;
+				}
+				else if($("#vts_sim_nmbr")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#vts_sim_nmbr")[0].focus();
+					return false;
+				}
+				else if($("#org_name")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#org_name")[0].focus();
+					return false;
+				}
+				else if($("#vehicle_nmbr")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#vehicle_nmbr")[0].focus();
+					return false;
+				}
+				else if($("#installation_date")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#installation_date")[0].focus();
+					return false;
+				}
+				else if($("#bil_amnt")[0].value=="" && !$("#bil_amnt_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#bil_amnt")[0].focus();
+					return false;
+				}
+				else if($("#code_sos")[0].value=="" && !$("#code_sos_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#code_sos")[0].focus();
+					return false;
+				}
+				else if($("#order")[0].value=="" && !$("#order_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#order")[0].focus();
+					return false;
+				}
+				else if($("#bill_id")[0].value=="" && !$("#bill_id_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#bill_id")[0].focus();
+					return false;
+				}
+				else if($("#sub_c")[0].value=="" && !$("#sub_c_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#sub_c")[0].focus();
+					return false;
+				}
+				else if($("#bill_period")[0].value=="" && !$("#bill_period_row").prop('hidden'))
+				{
+					alert("Please complete the form");
+					$("#bill_period")[0].focus();
+					return false;
+				}
+				else if($("#Cus_email")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#Cus_email")[0].focus();
+					return false;
+				}
+				else if($("#cus_ph")[0].value=="")
+				{
+					alert("Please complete the form");
+					$("#cus_ph")[0].focus();
+					return false;
+				}
+				else{
+					return true;
+				}	
+			}
+
+			function setFormOptional(){
+				if($('#cus_cat').val()=="Consumer" && $('#provider').val()=="Dingi" && $('#ten').val()=="Dingi"){
+					$("#ten_row").prop('hidden', false);
+					$("#pac_row").prop('hidden', true);
+					$("#bil_amnt_row").prop('hidden', false);
+					$("#code_sos_row").prop('hidden', false);
+					$("#order_row").prop('hidden', false);
+					$("#bill_id_row").prop('hidden', false);
+					$("#sub_c_row").prop('hidden', false);
+					$("#bill_period_row").prop('hidden', false);
+				}
+				else if($('#provider').val()=="Dingi"){
+					$("#ten_row").prop('hidden', false);
+					$("#pac_row").prop('hidden', true);
+					$("#bil_amnt_row").prop('hidden', true);
+					$("#code_sos_row").prop('hidden', true);
+					$("#order_row").prop('hidden', true);
+					$("#bill_id_row").prop('hidden', true);
+					$("#sub_c_row").prop('hidden', true);
+					$("#bill_period_row").prop('hidden', true);
+				}
+				else if($('#provider').val()=="GP"){
+					$("#ten_row").prop('hidden', true);
+					$("#pac_row").prop('hidden', false);
+					$("#bil_amnt_row").prop('hidden', true);
+					$("#code_sos_row").prop('hidden', true);
+					$("#order_row").prop('hidden', true);
+					$("#bill_id_row").prop('hidden', true);
+					$("#sub_c_row").prop('hidden', true);
+					$("#bill_period_row").prop('hidden', true);
+				}
+				else{
+					$("#ten_row").prop('hidden', true);
+					$("#pac_row").prop('hidden', true);
+					$("#bil_amnt_row").prop('hidden', true);
+					$("#code_sos_row").prop('hidden', true);
+					$("#order_row").prop('hidden', true);
+					$("#bill_id_row").prop('hidden', true);
+					$("#sub_c_row").prop('hidden', true);
+					$("#bill_period_row").prop('hidden', true);
+				}
 			}
 			
 		});
