@@ -137,10 +137,6 @@
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">Select Technician name:</h4>
 						<select name="" id="APPI2">
-							<option>Choose</option>
-							<option value="">Rahad</option>
-							<option value="">Alvie</option>
-							<option value="">Hasan</option><br>
 						</select>
 					</td>
 				</tr>
@@ -173,10 +169,20 @@
 	<script>
 		$(document).ready(function(){
 			var username= getCookie("username");
-			//console.log(username);
 			
 			if(username){
+				try {
+					//initializer
+					var technician_name=(JSON.parse(getCookie("replaceFormField"))["technician"]).split(",");
+					technician_name.forEach(element => {
+						$('#APPI2').append(new Option(element, element));
+					});
+				} catch (error) {
+					alert(error);
+					location.reload();
+				}
 				
+
 				$('#APPI').change(function(){
 					var idSelected=$('#APPI').val();
 

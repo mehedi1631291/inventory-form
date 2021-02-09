@@ -115,7 +115,7 @@
 								$("#modal01")[0].style.display='none';
 								if(result["resultData"]["respResult"]=="success")
 								{
-									setCookie("installFormField", result["resultData"]["formField"], 120);
+									setCookie("installFormField", JSON.stringify(result["resultData"]["formField"]), 120);
 									var url = (window.location.href).replace("menu.html","Installation_Complete_Form.html");
 									window.location.href = url;
 								}
@@ -153,7 +153,8 @@
 								$("#modal01")[0].style.display='none';
 								if(result["resultData"]["respResult"]=="success")
 								{
-									setCookie("replaceFormField", result["resultData"]["formField"], 120);
+									
+									setCookie("replaceFormField", JSON.stringify(result["resultData"]["formField"]), 120);
 									var url = (window.location.href).replace("menu.html","Replacement_Form.html");
 									window.location.href = url;
 								}
