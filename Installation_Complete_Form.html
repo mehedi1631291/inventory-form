@@ -162,6 +162,27 @@
 					<td>
 						<h4>Relay Interested?</h4>
 						<select id="relay_interested">
+							<option>Choose</option>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+						</select>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Provider:</h4>
+						<select id="provider">
+
+						</select>
+
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h4>Tenant:</h4>
+						<select id="ten">
 
 						</select>
 
@@ -169,23 +190,114 @@
 				</tr>
 
 				<tr>
-<<<<<<< HEAD
 					<td>
-						<h4>Provider</h4>
-						<select id="provider">
+						<h4>Customer Category:</h4>
+						<select id="cus_cat">
 
-=======
-					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Relay Interested?</h4>
-						<select name="name" id="relay_interested">
-							<option>Choose</option>
-							<option value="1">Yes</option>
-							<option value="0">No</option>
->>>>>>> e46f8fecc480df1bea9020bc07f85f3434f210ff
 						</select>
 
 					</td>
 				</tr>
+
+				<tr>
+					<td>
+						<h4>Client Type:</h4>
+						<select id="cli_typ">
+
+						</select>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Package Type:</h4>
+						<select id="pac_typ">
+
+						</select>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Client Type:</h4>
+						<select id="client_typ">
+
+						</select>
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Bill Amount:</h4>
+						<input type="text" id="bil_amnt" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Code/SOS:</h4>
+						<input type="text" id="code_sos" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Order:</h4>
+						<input type="text" id="order" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Bill:</h4>
+						<input type="text" id="bill" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Subscription:</h4>
+						<input type="text" id="sub_c" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Bill period:</h4>
+						<input type="text" id="bill_period" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Customer Email:</h4>
+						<input type="text" id="Cus_email" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<h4>Customer Phone:</h4>
+						<input type="text" id="cus_ph" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+
+				
+
+
+
 			</table>
 			<h2>Search Result</h2>
 			<table id="t01" >
@@ -303,7 +415,7 @@
 			else{
 				$("body")[0].innerHTML="";
 				alert("Invalid Cookie. Please login First")
-				var url = (window.location.href).replace("search_by_IMEI.html","index.html");
+				var url = (window.location.href).replace("Installation_Complete_Form.html","index.html");
 				window.location.href = url;
 			}
 			
