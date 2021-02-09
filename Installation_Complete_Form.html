@@ -189,11 +189,15 @@
 				try {
 					//initializer
 					var formInitData=JSON.parse(getCookie("installFormField"));
-					var technician_name=(formInitData["technician"]).split(",");
+					var technician=(formInitData["technician"]).split(",");
 					var clientType=(formInitData["clientType"]).split(",");
 					var customerCategory=(formInitData["customerCategory"]).split(",");
 					var provider=(formInitData["provider"]).split(",");
 					var tenant=(formInitData["tenant"]).split(",");
+
+					technician.forEach(element => {
+						$('#technician_name').append(new Option(element, element));
+					});
 					
 				} catch (error) {
 					alert(error);
