@@ -1,82 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>installation form</title>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<head>
+		<title>installation form</title>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-	<style>
-
-		body {
+		<style>
+			body {
 				background-color: aliceblue;
 				padding: 40px;
-		}
+			}
+			h2 {
+				border-style: double;
+				border-top: 0px;
+				border-left: 0px;
+				border-right: 0px;
+				border-color: rgb(104, 86, 64);
+				color: rgb(104, 86, 64);
+			}
+			a {
+				color: inherit;
+			}
+			a {
+				background-color: transparent;
+			}
 
+			table {
+				width:100%;
+			}
+			table, th, td {
+				border: 0px;
+				border-collapse: collapse;
+			}
+			th, td, h2 {
+				padding: 15px;
+				text-align: center;
+			}
 
-
-
-		input {
-				float: right;
-				padding-left: 40px;
-				padding-right: 40px;
-				padding-top: 13px;
-				padding-bottom: 13px;
-				width: 70%;
-		}
-
-
-		table{
-			width: 100%;
-		}
-
-
-		select{
+			select{
 				text-align: left !important;
-		}
+			}
+			
 
-
-
-		#name {
-				float: right;
-				padding-left: 40px;
-				padding-top: 13px;
-				padding-bottom: 13px;
-				width: 70%;
-		}
-
-		#vehicle_type {
-				float: right;
-				padding-left: 40px;
-				padding-top: 13px;
-				padding-bottom: 13px;
-				width: 70%;
-		}
-
-		#technician_name_select{
-				float: right;
-				padding-left: 40px;
-				padding-top: 13px;
-				padding-bottom: 13px;
-				width: 70%;
-		}
-
-		#interested{
-				float: right;
-				padding-left: 40px;
-				padding-top: 13px;
-				padding-bottom: 13px;
-				width: 70%;
-		}
-
-		#platform_area{
-				float: right;
-				padding-left: 40px;
-				padding-top: 13px;
-				padding-bottom: 13px;
-				width: 70%;
-		}
-
-
-		.button_area a {
+			.button_area a {
 				text-decoration: none;
 				color: unset;
 				padding: 12px;
@@ -93,223 +58,118 @@
 				font-size: 20px;
 			}
 
+
+			input {
+				float: right;
+				padding-left: 40px;
+				padding-right: 40px;
+				padding-top: 13px;
+				padding-bottom: 13px;
+				width: 70%;
+			}
+
+			select {
+				float: right;
+				padding-left: 40px;
+				padding-top: 13px;
+				padding-bottom: 13px;
+				width: 70%;
+			}
+
 			h4, h2{
 				font-family: "Segoe UI",Arial,sans-serif;
 				font-weight: 400;
 				margin: 10px 0;
 			}
 
-			h2 {
-				border-style: double;
-				border-top: 0px;
-				border-left: 0px;
-				border-right: 0px;
-				border-color: rgb(104, 86, 64);
-				color: rgb(104, 86, 64);
-			}
-
-			a {
-				color: inherit;
-			}
-			a {
-				background-color: transparent;
-			}
-
 			#t01 th {
 				background-color: black;
 				color: white;
 			}
-
-			table, th, td {
-				border: 0px;
-				border-collapse: collapse;
-			}
-
-			th, td, h2 {
-				padding: 15px;
-				text-align: center;
-			}
-
-
-
-
-
-
-
-	</style>
-</head>
-<body>
-
-
+		</style>
+	</head>
+	<body>
 		<a id="back" href="menu.html">&#8592;Menu</a>
-		<h2>Installation Complete Form</h2>
+		<h2>Replacement Form</h2>
 
 		<div class="button_area">
 			<table>
 				<tr>
 					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Your Name:</h4>
-						<select name="name" id="name">
-							<option>Choose</option>
-							<option value="">Rahad</option>
-							<option value="">Alvie</option>
-							<option value="">Hasan</option>
+						<h4 style="float: left;">Device IMEI:</h4>
+						<input type="text" id="device_imei" placeholder="Your Answer">
 
-						</select>
-
-					</td>
-				</tr>
-
-				<tr>
-					<td style="background-color: aliceblue;">
-						<h4 style="float:left">Device IMEI:</h4>
-						<input type="text" id="device_imei_input" placeholder="Your Answer">
-						
 					</td>
 				</tr>
 
 				<tr>
 					<td style="background-color: aliceblue;">
 						<h4 style="float: left;">VTS Sim Number:</h4>
-						<input type="text"id="vts_sim_number" placeholder="Your Answer">
-					</td>
-				</tr>
+						<input type="text" id="vts_sim_nmbr" placeholder="Your Answer">
 
-				<tr>
-					
-					<td style="background-color: aliceblue;">
-						<h4 style="float:left;">Company</h4>
-						<input type="text" id="company" placeholder="Your Answer">
 					</td>
 				</tr>
 
 				<tr>
 					<td style="background-color: aliceblue;">
-						<h4 style="float:left;">Vehicle Number</h4>
-						<input type="text" id="company" placeholder="Your Answer">
+						<h4 style="float: left;">Organization Number:</h4>
+						<input type="text" id="org_nmbr" placeholder="Your Answer">
+
 					</td>
 				</tr>
 
 				<tr>
 					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Vehicle Type: </h4>
+						<h4 style="float: left;">Vehicle Number:</h4>
+						<input type="text" id="vehicle_nmbr" placeholder="Your Answer">
+
+					</td>
+				</tr>
+
+				<tr>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Vehicle type:</h4>
 						<select name="name" id="vehicle_type">
-							<option>Choose</option>
-							<option value="">CNG</option>
-							<option value="">Sedan</option>
-							<option value="">Drum Truck</option>
-							<option value="">Van</option>
-							<option value="">Ambulance</option>
-							<option value="">Pickup</option>
-							<option value="">Microbus</option>
-							<option value="">Excavator</option>
-							<option value="">Generator</option>
-							<option value="">Train</option>
-							<option value="">Covered Van</option>
-							<option value="">Truck</option>
-							<option value="">Asset</option>
-							<option value="">Fishing Boat</option>
-							<option value="">SUV</option>
-							<option value="">Motorbike</option>
-							<option value="">Mk-22</option>
-							<option value="">Bus</option><br>
 
 						</select>
+
 					</td>
 				</tr>
-			<!--
-				<tr>
-					<td>Date: </td>
-					<td><input type="date" name="date" id="name"></td>
-				</tr>
-			-->
+
 				<tr>
 					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Technician Name: </h4>
-						<select name="name" id="technician_name_select">
-							<option>Choose</option>
-							<option value="">Yasin</option>
-							<option value="">Arif</option>
-							<option value="">Al-Amin</option>
-							<option value="">Rayhan</option>
-							<option value="">Humayun</option>
-							<option value="">Sagor</option>
-							<option value="">Jobed</option>
-							<option value="">Sanim-Technician</option>
-							<option value="">Sanim-Follwor</option>
-							<option value="">Prodip</option>
-							<option value="">Customer-Itself</option>
+						<h4 style="float: left;">Date</h4>
+						<input type="date" id="vehicle_nmbr" placeholder="Your Answer">
 
-						</select>
 					</td>
 				</tr>
+
 				<tr>
 					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Relay Installed?</h4>
-						<select name="name" id="interested">
-							<option>Choose</option>
-							<option value="">Yes</option>
-							<option value="">No</option>
+						<h4 style="float: left;">Technician Name:</h4>
+						<select name="name" id="technician_name">
 
 						</select>
-					</td>
-				</tr>
-				<tr>
-					<td style="background-color: aliceblue;">
-						<h4 style="float: left;">Platform: </h4>
-						<select name="name" id="platform_area">
-							<option>Choose</option>
-							<option value="">GP Enterprise</option>
-							<option value="">Dingi Follower Consumer</option>
-							<option value="">Dingi Follower Enterprise</option>
-							<option value="">Sohoz</option>
-						</select>
+
 					</td>
 				</tr>
 
 				<tr>
-					<td >
-						<a class="btn_hvr" style="background-color: rgb(187, 180, 180); padding-left: 45px; padding-right: 45px;">
-							submit
-						</a>
+					<td style="background-color: aliceblue;">
+						<h4 style="float: left;">Relay Interested?</h4>
+						<select name="name" id="relay_interested">
+
+						</select>
+
 					</td>
 				</tr>
-
 
 
 
 
 
 			</table>
-
-
-			<br><br>
-
-			<h2>Search Result</h2>
-			<table id="t01" >
-				<tr>
-				  <th>IMEI</th>
-				  <th>Result</th> 
-				</tr>
-			</table>
-
-
-
-
-
 
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
+	</body>
 </html>
